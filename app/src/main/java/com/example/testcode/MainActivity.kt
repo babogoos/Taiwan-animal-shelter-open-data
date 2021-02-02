@@ -2,49 +2,52 @@ package com.example.testcode
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.util.Log
-import androidx.lifecycle.Observer
-import com.google.gson.Gson
-import okhttp3.*
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-import java.io.IOException
-import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModel()
 
-    private lateinit var mRecyclerView: RecyclerView
+    private lateinit var list: RecyclerView
+    private lateinit var adapter: OpenDataAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initView()
-        viewModel.itemList.observe(this, Observer {
-            this@MainActivity.runOnUiThread {
-                mRecyclerView.adapter = MainAdapter(it, applicationContext)
-            }
-        })
-        viewModel.loadOpenData()
+        initAdapter()
     }
 
     private fun initView() {
-        mRecyclerView = findViewById(R.id.recyclerView)
-        mRecyclerView.layoutManager =
+        list = findViewById(R.id.recyclerView)
+        list.layoutManager =
             LinearLayoutManager(
                 this,
                 LinearLayoutManager.VERTICAL,
                 false
             )
-        mRecyclerView.addItemDecoration(
+        list.addItemDecoration(
             DividerItemDecoration(
                 this,
                 DividerItemDecoration.VERTICAL
             )
         )
+    }
+
+    private fun initAdapter() {
+        adapter = OpenDataAdapter()
+        list.adapter = adapter
+        lifecycleScope.launch {
+            viewModel.getData().collectLatest {
+                adapter.submitData(it)
+            }
+        }
     }
 }

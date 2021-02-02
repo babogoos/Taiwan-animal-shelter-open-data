@@ -10,7 +10,9 @@ import retrofit2.http.Query
 interface OpenDataApi {
     @GET("/Service/OpenData/TransService.aspx")
     suspend fun getOpenData(
-        @Query("UnitId") unitId: String = "QcbUEzN6E6DL"
+        @Query("UnitId") unitId: String = "QcbUEzN6E6DL",
+        @Query("\$top") top: Int,
+        @Query("\$skip") skip: Int
     ) : List<OpenData>
 
     companion object {

@@ -1,11 +1,9 @@
 package com.example.testcode
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.testcode.repository.IOpenDataRepository
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.FlowPreview
 import org.koin.java.KoinJavaComponent.inject
 
 
@@ -13,14 +11,8 @@ import org.koin.java.KoinJavaComponent.inject
  * Created by dion on 2021/02/01.
  */
 class MainViewModel : ViewModel() {
-    private val _itemList: MutableLiveData<List<OpenData>> = MutableLiveData()
-    val itemList: LiveData<List<OpenData>> = _itemList
-
     private val openDataRepository: IOpenDataRepository by inject(IOpenDataRepository::class.java)
 
-    fun loadOpenData() {
-        viewModelScope.launch {
-            _itemList.postValue(openDataRepository.getAnimalPlaceList())
-        }
-    }
+    @OptIn(ExperimentalCoroutinesApi::class, FlowPreview::class)
+    suspend fun getData() = openDataRepository.getAnimalPlaceList()
 }
