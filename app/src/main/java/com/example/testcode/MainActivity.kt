@@ -15,7 +15,6 @@ import java.util.concurrent.TimeUnit
 
 
 class MainActivity : AppCompatActivity() {
-    private val TAG = MainActivity::class.java.simpleName
 
     private val viewModel: MainViewModel by viewModel()
 
@@ -30,7 +29,7 @@ class MainActivity : AppCompatActivity() {
                 mRecyclerView.adapter = MainAdapter(it, applicationContext)
             }
         })
-        viewModel.connectOpenData()
+        viewModel.loadOpenData()
     }
 
     private fun initView() {
