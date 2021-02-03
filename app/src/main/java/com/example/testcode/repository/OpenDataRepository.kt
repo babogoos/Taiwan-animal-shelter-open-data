@@ -12,19 +12,19 @@ import kotlinx.coroutines.flow.Flow
  * Created by dion on 2021/02/01.
  */
 interface IOpenDataRepository {
-   suspend fun getAnimalPlaceList(): Flow<PagingData<OpenData>>
+    suspend fun getAnimalPlaceList(): Flow<PagingData<OpenData>>
 }
 
 class OpenDataRepository : IOpenDataRepository {
 
-   override suspend fun getAnimalPlaceList(): Flow<PagingData<OpenData>> {
-      return Pager(
-         PagingConfig(
-            pageSize = INDEX_SIZE,
-            enablePlaceholders = false
-         )
-      ) {
-         OpenDataPagingSource()
-      }.flow
-   }
+    override suspend fun getAnimalPlaceList(): Flow<PagingData<OpenData>> {
+        return Pager(
+            PagingConfig(
+                pageSize = INDEX_SIZE,
+                enablePlaceholders = false
+            )
+        ) {
+            OpenDataPagingSource()
+        }.flow
+    }
 }

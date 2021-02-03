@@ -18,7 +18,7 @@ object AppClientManager {
         }
     })
 
-    private var okHttpClient : OkHttpClient
+    private var okHttpClient: OkHttpClient
 
     init {
         logging.level = HttpLoggingInterceptor.Level.BODY

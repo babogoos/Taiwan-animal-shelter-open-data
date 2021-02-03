@@ -13,7 +13,7 @@ interface OpenDataApi {
         @Query("UnitId") unitId: String = "QcbUEzN6E6DL",
         @Query("\$top") top: Int,
         @Query("\$skip") skip: Int
-    ) : List<OpenData>
+    ): List<OpenData>
 
     companion object {
         fun create(): OpenDataApi = AppClientManager.retrofit.create(OpenDataApi::class.java)

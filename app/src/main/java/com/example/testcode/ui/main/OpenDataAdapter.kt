@@ -16,7 +16,7 @@ import com.example.testcode.model.OpenData
 /**
  * Created by dion on 2021/02/02.
  */
-class OpenDataAdapter : PagingDataAdapter<OpenData, OpenDataAdapter.ViewHolder>(COMPARATOR) {
+class OpenDataAdapter : PagingDataAdapter<OpenData, OpenDataAdapter.OpenDataViewHolder>(COMPARATOR) {
     companion object {
         val COMPARATOR = object : DiffUtil.ItemCallback<OpenData>() {
             override fun areContentsTheSame(oldItem: OpenData, newItem: OpenData): Boolean =
@@ -27,22 +27,22 @@ class OpenDataAdapter : PagingDataAdapter<OpenData, OpenDataAdapter.ViewHolder>(
         }
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: OpenDataViewHolder, position: Int) {
         getItem(position)?.let {
             holder.bind(it)
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return ViewHolder.create(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OpenDataViewHolder {
+        return OpenDataViewHolder.create(parent)
     }
 
-    class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class OpenDataViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         companion object {
-            fun create(parent: ViewGroup): ViewHolder {
+            fun create(parent: ViewGroup): OpenDataViewHolder {
                 val view = LayoutInflater.from(parent.context)
                     .inflate(R.layout.adapter_item, parent, false)
-                return ViewHolder(view)
+                return OpenDataViewHolder(view)
             }
         }
 

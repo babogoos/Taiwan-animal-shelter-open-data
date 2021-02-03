@@ -9,7 +9,7 @@ import org.koin.core.context.startKoin
 /**
  * Created by dion on 2021/02/01.
  */
-class OpenDataApplication: Application() {
+class OpenDataApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         startKoin {
