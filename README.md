@@ -1,16 +1,14 @@
-# Android Interview
-需求：
-1. 使用 Kotlin
-2. 串接 Open data 的 API
-3. 使用 RecyclerView
- 
-加分：
-1. 單元測試
-2. Material Design
-3. MVVM/MVP/Clean Architecture
- 
-Open data 網址與文件：
-https://data.coa.gov.tw/Query/ServiceTransDetail.aspx?id=QcbUEzN6E6DL
+# Taiwan animal shelter open data  - Android Architecture Sample
 
-## 題目
-目前已經有一份實作完上述需求的專案了，但這個實作有很多破綻，它可以怎麼改善？
+This app that loads information from [Taiwan animal shelter open data](https://data.coa.gov.tw/Query/ServiceTransDetail.aspx?id=QcbUEzN6E6DL) to show one approach to using some of the best practices in Android Development. Including:
+ * ViewModel
+ * Koin (for dependency injection)
+ * Kotlin Coroutines Flow
+ * Paging 3
+ * Retrofit
+ * Spotless (for kotlin lint)
+
+ ## Next Step
+
+ * Unit test
+ * Material Design
