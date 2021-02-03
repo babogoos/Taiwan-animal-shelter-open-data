@@ -1,4 +1,4 @@
-package com.example.testcode
+package com.example.testcode.ui.main
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +10,8 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.testcode.R
+import com.example.testcode.model.OpenData
 
 /**
  * Created by dion on 2021/02/02.
@@ -32,7 +34,7 @@ class OpenDataAdapter : PagingDataAdapter<OpenData, OpenDataAdapter.ViewHolder>(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        return  ViewHolder.create(parent)
+        return ViewHolder.create(parent)
     }
 
     class ViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {

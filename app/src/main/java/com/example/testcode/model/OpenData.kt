@@ -1,4 +1,4 @@
-package com.example.testcode
+package com.example.testcode.model
 
 data class OpenData(
     var animal_id: Int,

@@ -1,4 +1,4 @@
-package com.example.testcode
+package com.example.testcode.ui.main
 
 import android.os.Bundle
 import android.widget.Toast
@@ -8,10 +8,10 @@ import androidx.paging.LoadState
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.testcode.R
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
-
 
 class MainActivity : AppCompatActivity() {
 

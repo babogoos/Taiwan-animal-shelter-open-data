@@ -2,7 +2,7 @@ package com.example.testcode.repository.datasource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.testcode.OpenData
+import com.example.testcode.model.OpenData
 import com.example.testcode.repository.network.OpenDataApi
 import retrofit2.HttpException
 import java.io.IOException

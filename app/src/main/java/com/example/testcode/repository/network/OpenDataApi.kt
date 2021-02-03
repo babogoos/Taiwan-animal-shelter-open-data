@@ -1,6 +1,6 @@
 package com.example.testcode.repository.network
 
-import com.example.testcode.OpenData
+import com.example.testcode.model.OpenData
 import retrofit2.http.GET
 import retrofit2.http.Query
 

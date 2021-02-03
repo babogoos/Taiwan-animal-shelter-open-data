@@ -3,7 +3,7 @@ package com.example.testcode.repository
 import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
-import com.example.testcode.OpenData
+import com.example.testcode.model.OpenData
 import com.example.testcode.repository.datasource.OpenDataPagingSource
 import com.example.testcode.repository.datasource.OpenDataPagingSource.Companion.INDEX_SIZE
 import kotlinx.coroutines.flow.Flow

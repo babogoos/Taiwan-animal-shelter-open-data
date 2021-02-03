@@ -1,8 +1,9 @@
-package com.example.testcode
+package com.example.testcode.ui.main
 
 import androidx.lifecycle.*
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.example.testcode.model.OpenData
 import com.example.testcode.repository.IOpenDataRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.FlowPreview

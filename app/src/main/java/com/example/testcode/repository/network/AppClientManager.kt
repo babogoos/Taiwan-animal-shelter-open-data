@@ -1,7 +1,7 @@
 package com.example.testcode.repository.network
 
 import android.util.Log
-import com.example.testcode.OpenDataUtils.OPEN_DATA_BASE_URL
+import com.example.testcode.util.OpenDataUtils.OPEN_DATA_BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
